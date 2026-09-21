@@ -71,6 +71,8 @@ Problems:
 * Contains Duplicate (Set)
 * Valid Anagram (frequency Map / frequency array)
 * Group Anagrams (Map of sorted-string or frequency-array keys)
+* Longest Consecutive Sequence (Set, check `num - 1` to find sequence starts)
+* Majority Element (frequency Map approach; see also Boyer-Moore Voting below)
 
 Key question to ask:
 
@@ -254,6 +256,44 @@ Key question to ask:
 
 ---
 
+## Cancellation / Voting (Boyer-Moore)
+
+Use when:
+
+* One value is guaranteed to dominate the input (e.g. appears more than n/2 times)
+* A frequency Map would work but uses O(n) extra space
+* I want to avoid storing every count explicitly
+
+Typical structure:
+
+```js
+let candidate;
+let count = 0;
+
+for (const num of nums) {
+    if (count === 0) {
+        candidate = num;
+    }
+
+    count += num === candidate ? 1 : -1;
+}
+```
+
+Typical complexity:
+
+* Time: O(n)
+* Space: O(1)
+
+Problems:
+
+* Majority Element
+
+Key question to ask:
+
+> Can opposing values cancel each other out, leaving only the guaranteed majority behind?
+
+---
+
 # Problems Completed
 
 | Problem                          | Pattern                     |      Time | Space | Status |
@@ -264,6 +304,8 @@ Key question to ask:
 | Group Anagrams                    | Hash Map (frequency key)     | O(n \* k) | O(n \* k) | ✅  |
 | Product of Array Except Self      | Prefix / Suffix Products      |      O(n) |  O(1) | ✅      |
 | Best Time to Buy and Sell Stock   | Greedy / One Pass             |      O(n) |  O(1) | ✅      |
+| Longest Consecutive Sequence      | Hash Set                      |      O(n) |  O(n) | ✅      |
+| Majority Element                  | Boyer-Moore Voting            |      O(n) |  O(1) | ✅      |
 
 ---
 
