@@ -54,9 +54,23 @@ Typical complexity:
 * Insert: O(1)
 * Space: O(n)
 
+If I only need to check whether a value has been seen (no need to store an
+associated value), a `Set` is a better fit than a `Map`:
+
+```js
+const seen = new Set();
+
+seen.add(value);
+
+seen.has(value);
+```
+
 Problems:
 
 * Two Sum
+* Contains Duplicate (Set)
+* Valid Anagram (frequency Map / frequency array)
+* Group Anagrams (Map of sorted-string or frequency-array keys)
 
 Key question to ask:
 
@@ -172,11 +186,84 @@ Problems:
 
 ---
 
+## Prefix / Suffix Products
+
+Use when:
+
+* I need the product (or sum) of every element except the current one
+* A brute-force nested loop would be O(n²)
+* I can't just divide by the current value (e.g. zeros in the array)
+
+Typical idea:
+
+```text
+First pass (left to right):
+Store the running product of everything to the LEFT of each index.
+
+Second pass (right to left):
+Multiply in the running product of everything to the RIGHT of each index.
+```
+
+Typical complexity:
+
+* Time: O(n)
+* Space: O(1) extra (excluding the output array)
+
+Problems:
+
+* Product of Array Except Self
+
+Key question to ask:
+
+> Can I precompute what's to the left and right of each index in two passes instead of recomputing it for every element?
+
+---
+
+## Greedy / One Pass
+
+Use when:
+
+* I need a running best/min/max while scanning once
+* Each decision only depends on what I've seen so far, not the whole array
+* A brute-force approach compares every pair (O(n²)) but the answer can be tracked incrementally
+
+Typical structure:
+
+```js
+let best = 0;
+let runningMin = nums[0];
+
+for (let i = 1; i < nums.length; i++) {
+    runningMin = Math.min(runningMin, nums[i]);
+    best = Math.max(best, nums[i] - runningMin);
+}
+```
+
+Typical complexity:
+
+* Time: O(n)
+* Space: O(1)
+
+Problems:
+
+* Best Time to Buy and Sell Stock
+
+Key question to ask:
+
+> Do I actually need to compare every pair, or can I track the best value seen so far in a single pass?
+
+---
+
 # Problems Completed
 
-| Problem | Pattern  | Time | Space | Status |
-| ------- | -------- | ---: | ----: | ------ |
-| Two Sum | Hash Map | O(n) |  O(n) | ✅      |
+| Problem                          | Pattern                     |      Time | Space | Status |
+| --------------------------------- | ---------------------------- | --------: | ----: | ------ |
+| Two Sum                           | Hash Map                     |      O(n) |  O(n) | ✅      |
+| Contains Duplicate                | Hash Set                     |      O(n) |  O(n) | ✅      |
+| Valid Anagram                     | Frequency Map / Array        |      O(n) |  O(1) | ✅      |
+| Group Anagrams                    | Hash Map (frequency key)     | O(n \* k) | O(n \* k) | ✅  |
+| Product of Array Except Self      | Prefix / Suffix Products      |      O(n) |  O(1) | ✅      |
+| Best Time to Buy and Sell Stock   | Greedy / One Pass             |      O(n) |  O(1) | ✅      |
 
 ---
 
