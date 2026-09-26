@@ -131,9 +131,15 @@ while (left < right) {
 }
 ```
 
+Variations:
+
+* **Write pointer** – one pointer scans (`i`), another marks where the next kept value goes. Good for compacting / removing / moving values in place while preserving order.
+* **Merge backwards** – two sorted inputs, one pointer each, plus a write pointer filling from the end so unprocessed values aren't overwritten.
+
 Problems:
 
-* TODO
+* Move Zeroes (write pointer, then fill the rest with 0)
+* Merge Sorted Array (three pointers `i = m - 1`, `j = n - 1`, `k = m + n - 1`, merge from the back)
 
 ---
 
@@ -294,6 +300,39 @@ Key question to ask:
 
 ---
 
+## Counting (Fixed Value Range)
+
+Use when:
+
+* The possible values are known in advance
+* There are only a small number of distinct values
+* A general-purpose sort (O(n log n)) is overkill
+
+Typical idea:
+
+```text
+First pass:
+Count how many times each value appears.
+
+Second pass:
+Overwrite the array in order using those counts.
+```
+
+Typical complexity:
+
+* Time: O(n)
+* Space: O(1) (fixed number of counters)
+
+Problems:
+
+* Sort Colors (count 0s / 1s / 2s; one-pass alternative: Dutch National Flag)
+
+Key question to ask:
+
+> Is the set of possible values small enough to just count them and rebuild?
+
+---
+
 # Problems Completed
 
 | Problem                          | Pattern                     |      Time | Space | Status |
@@ -306,6 +345,9 @@ Key question to ask:
 | Best Time to Buy and Sell Stock   | Greedy / One Pass             |      O(n) |  O(1) | ✅      |
 | Longest Consecutive Sequence      | Hash Set                      |      O(n) |  O(n) | ✅      |
 | Majority Element                  | Boyer-Moore Voting            |      O(n) |  O(1) | ✅      |
+| Move Zeroes                       | Two Pointers (write pointer)  |      O(n) |  O(1) | ✅      |
+| Merge Sorted Array                | Two Pointers (merge backwards) | O(m + n) |  O(1) | ✅      |
+| Sort Colors                       | Counting                      |      O(n) |  O(1) | ✅      |
 
 ---
 
