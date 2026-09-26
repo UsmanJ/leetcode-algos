@@ -73,6 +73,7 @@ Problems:
 * Group Anagrams (Map of sorted-string or frequency-array keys)
 * Longest Consecutive Sequence (Set, check `num - 1` to find sequence starts)
 * Majority Element (frequency Map approach; see also Boyer-Moore Voting below)
+* Missing Number (Set approach; see also Expected vs Actual below)
 
 Key question to ask:
 
@@ -333,6 +334,45 @@ Key question to ask:
 
 ---
 
+## Expected vs Actual (Sum)
+
+Use when:
+
+* I know exactly which values *should* be present (e.g. `0` to `n`)
+* Exactly one value is missing (or extra)
+* A Set would work but uses O(n) extra space
+
+Typical structure:
+
+```js
+let expectedSum = 0;
+let actualSum = 0;
+
+for (let i = 0; i < nums.length; i++) {
+    expectedSum += i;
+    actualSum += nums[i];
+}
+
+expectedSum += nums.length; // range is 0..n inclusive
+
+return expectedSum - actualSum;
+```
+
+Typical complexity:
+
+* Time: O(n)
+* Space: O(1)
+
+Problems:
+
+* Missing Number
+
+Key question to ask:
+
+> Do I know what the complete set should add up to, so the difference reveals what's missing?
+
+---
+
 # Problems Completed
 
 | Problem                          | Pattern                     |      Time | Space | Status |
@@ -348,6 +388,7 @@ Key question to ask:
 | Move Zeroes                       | Two Pointers (write pointer)  |      O(n) |  O(1) | ✅      |
 | Merge Sorted Array                | Two Pointers (merge backwards) | O(m + n) |  O(1) | ✅      |
 | Sort Colors                       | Counting                      |      O(n) |  O(1) | ✅      |
+| Missing Number                    | Expected vs Actual Sum        |      O(n) |  O(1) | ✅      |
 
 ---
 
