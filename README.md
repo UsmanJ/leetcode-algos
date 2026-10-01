@@ -141,6 +141,7 @@ Problems:
 
 * Move Zeroes (write pointer, then fill the rest with 0)
 * Merge Sorted Array (three pointers `i = m - 1`, `j = n - 1`, `k = m + n - 1`, merge from the back)
+* Valid Palindrome (pointers from both ends, skip non-alphanumeric, compare lowercase)
 
 ---
 
@@ -389,6 +390,7 @@ Key question to ask:
 | Merge Sorted Array                | Two Pointers (merge backwards) | O(m + n) |  O(1) | ✅      |
 | Sort Colors                       | Counting                      |      O(n) |  O(1) | ✅      |
 | Missing Number                    | Expected vs Actual Sum        |      O(n) |  O(1) | ✅      |
+| Valid Palindrome                  | Two Pointers                  |      O(n) |  O(1) | ✅      |
 
 ---
 
