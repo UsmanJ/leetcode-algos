@@ -144,6 +144,9 @@ Problems:
 * Valid Palindrome (pointers from both ends, skip non-alphanumeric, compare lowercase)
 * Two Sum II - Input Array Is Sorted (sum too small -> move left; sum too large -> move right)
 * 3Sum (sort, fix one value with `i`, solve the rest as Two Sum II with `j`/`k`, skip duplicates)
+* Container With Most Water (area = shorter height * width, move the pointer at the shorter line)
+* Squares of a Sorted Array (compare squares at both ends, write the larger one from the back)
+* Backspace String Compare (pointers from the end, skip counters to skip deleted characters)
 
 ---
 
@@ -395,6 +398,9 @@ Key question to ask:
 | Valid Palindrome                  | Two Pointers                  |      O(n) |  O(1) | ✅      |
 | Two Sum II (sorted array)         | Two Pointers                  |      O(n) |  O(1) | ✅      |
 | 3Sum                               | Sorting + Two Pointers        |   O(n²)   |  O(1) | ✅      |
+| Container With Most Water         | Two Pointers                  |      O(n) |  O(1) | ✅      |
+| Squares of a Sorted Array         | Two Pointers                  |      O(n) |  O(n) | ✅      |
+| Backspace String Compare          | Two Pointers + Skip Counters  |  O(n + m) |  O(1) | ✅      |
 
 ---
 
