@@ -142,6 +142,8 @@ Problems:
 * Move Zeroes (write pointer, then fill the rest with 0)
 * Merge Sorted Array (three pointers `i = m - 1`, `j = n - 1`, `k = m + n - 1`, merge from the back)
 * Valid Palindrome (pointers from both ends, skip non-alphanumeric, compare lowercase)
+* Two Sum II - Input Array Is Sorted (sum too small -> move left; sum too large -> move right)
+* 3Sum (sort, fix one value with `i`, solve the rest as Two Sum II with `j`/`k`, skip duplicates)
 
 ---
 
@@ -391,6 +393,8 @@ Key question to ask:
 | Sort Colors                       | Counting                      |      O(n) |  O(1) | ✅      |
 | Missing Number                    | Expected vs Actual Sum        |      O(n) |  O(1) | ✅      |
 | Valid Palindrome                  | Two Pointers                  |      O(n) |  O(1) | ✅      |
+| Two Sum II (sorted array)         | Two Pointers                  |      O(n) |  O(1) | ✅      |
+| 3Sum                               | Sorting + Two Pointers        |   O(n²)   |  O(1) | ✅      |
 
 ---
 
