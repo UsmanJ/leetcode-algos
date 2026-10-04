@@ -147,6 +147,7 @@ Problems:
 * Container With Most Water (area = shorter height * width, move the pointer at the shorter line)
 * Squares of a Sorted Array (compare squares at both ends, write the larger one from the back)
 * Backspace String Compare (pointers from the end, skip counters to skip deleted characters)
+* Remove Duplicates from Sorted Array (read/write pointer; write a value only when it differs from the last kept one)
 
 ---
 
@@ -170,7 +171,7 @@ move the left side forward.
 
 Problems:
 
-* TODO
+* Longest Substring Without Repeating Characters (Set tracks characters in the window; shrink left while the new right character is a duplicate)
 
 ---
 
@@ -401,6 +402,8 @@ Key question to ask:
 | Container With Most Water         | Two Pointers                  |      O(n) |  O(1) | ✅      |
 | Squares of a Sorted Array         | Two Pointers                  |      O(n) |  O(n) | ✅      |
 | Backspace String Compare          | Two Pointers + Skip Counters  |  O(n + m) |  O(1) | ✅      |
+| Remove Duplicates from Sorted Array | Two Pointers (read/write pointer) | O(n) |  O(1) | ✅      |
+| Longest Substring Without Repeating Characters | Sliding Window |   O(n) |  O(n) | ✅      |
 
 ---
 
