@@ -169,9 +169,17 @@ If the condition is broken,
 move the left side forward.
 ```
 
+Variations:
+
+* **Variable-size** – expand right; while the window is invalid (or, when looking for the minimum, while it is still valid), remove the left value and move left forward. Update the answer each step.
+* **Fixed-size** – the window is always a set length (e.g. `s1.length`). Add the right value; if the window is too large, remove the left value. Evaluate once the window is the right size.
+
 Problems:
 
 * Longest Substring Without Repeating Characters (Set tracks characters in the window; shrink left while the new right character is a duplicate)
+* Longest Repeating Character Replacement (frequency Map + `maxFrequency`; window is invalid when `windowLength - maxFrequency > k`)
+* Minimum Size Subarray Sum (running sum; shrink left WHILE `sum >= target`, recording the length before each shrink)
+* Permutation in String (fixed-size window of `s1.length`; compare frequency Maps of the window and `s1`)
 
 ---
 
@@ -404,6 +412,9 @@ Key question to ask:
 | Backspace String Compare          | Two Pointers + Skip Counters  |  O(n + m) |  O(1) | ✅      |
 | Remove Duplicates from Sorted Array | Two Pointers (read/write pointer) | O(n) |  O(1) | ✅      |
 | Longest Substring Without Repeating Characters | Sliding Window |   O(n) |  O(n) | ✅      |
+| Longest Repeating Character Replacement | Sliding Window (variable) | O(n) |  O(1) | ✅      |
+| Minimum Size Subarray Sum         | Sliding Window (variable)     |      O(n) |  O(1) | ✅      |
+| Permutation in String             | Sliding Window (fixed) + Frequency Map | O(n) | O(1) | ✅      |
 
 ---
 
