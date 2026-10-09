@@ -271,6 +271,7 @@ Typical complexity:
 Problems:
 
 * Best Time to Buy and Sell Stock
+* Maximum Subarray (Kadane's Algorithm - discard a negative running sum, it can only hurt the next subarray)
 
 Key question to ask:
 
@@ -415,6 +416,7 @@ Key question to ask:
 | Longest Repeating Character Replacement | Sliding Window (variable) | O(n) |  O(1) | ✅      |
 | Minimum Size Subarray Sum         | Sliding Window (variable)     |      O(n) |  O(1) | ✅      |
 | Permutation in String             | Sliding Window (fixed) + Frequency Map | O(n) | O(1) | ✅      |
+| Maximum Subarray                  | Greedy / One Pass (Kadane's)  |      O(n) |  O(1) | ✅      |
 
 ---
 
