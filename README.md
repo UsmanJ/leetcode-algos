@@ -206,7 +206,8 @@ stack[stack.length - 1];
 
 Problems:
 
-* TODO
+* Valid Parentheses (push opening brackets, pop + compare on closing, stack must be empty at the end)
+* Min Stack (auxiliary stack tracks the running minimum alongside the main stack, both O(1))
 
 ---
 
@@ -417,6 +418,8 @@ Key question to ask:
 | Minimum Size Subarray Sum         | Sliding Window (variable)     |      O(n) |  O(1) | ✅      |
 | Permutation in String             | Sliding Window (fixed) + Frequency Map | O(n) | O(1) | ✅      |
 | Maximum Subarray                  | Greedy / One Pass (Kadane's)  |      O(n) |  O(1) | ✅      |
+| Valid Parentheses                 | Stack                         |      O(n) |  O(n) | ✅      |
+| Min Stack                         | Stack (auxiliary min stack)   |      O(1) |  O(n) | ✅      |
 
 ---
 
